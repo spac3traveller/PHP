@@ -1,35 +1,35 @@
 <?php
 
 // ============================================================
-// PRECEDÊNCIA E ASSOCIATIVIDADE DE OPERADORES
+// OPERATOR PRECEDENCE AND ASSOCIATIVITY
 // ============================================================
-// Precedência  — define QUAL operador é avaliado primeiro
-// Associatividade — define a DIRECÇÃO quando operadores têm a mesma precedência
+// Precedence    — defines WHICH operator is evaluated first
+// Associativity — defines the DIRECTION when operators have the same precedence
 
 
 // ============================================================
-// PRECEDÊNCIA
+// PRECEDENCE
 // ============================================================
-// Semelhante à matemática — multiplicação antes da adição
+// Similar to mathematics — multiplication before addition
 
-$result = 2 + 3 * 4;    // 14 — * tem maior precedência que +
-$result = (2 + 3) * 4;  // 20 — parênteses forçam a ordem
+$result = 2 + 3 * 4;    // 14 — * has higher precedence than +
+$result = (2 + 3) * 4;  // 20 — parentheses force the order
 
 echo $result . '<br />';
 
-// Mais exemplos de precedência
-$result = 10 + 2 ** 3;      // 18  — ** antes de +
-$result = true || false && false; // true — && antes de ||
+// More precedence examples
+$result = 10 + 2 ** 3;      // 18  — ** before +
+$result = true || false && false; // true — && before ||
 
 var_dump($result);
 echo '<br />';
 
 
 // ============================================================
-// TABELA DE PRECEDÊNCIA (do maior para o menor)
+// PRECEDENCE TABLE (from highest to lowest)
 // ============================================================
 //
-//  Nível  │ Operadores
+//  Level  │ Operators
 // ────────┼──────────────────────────────────────────────────
 //    1    │ clone new
 //    2    │ **
@@ -57,71 +57,71 @@ echo '<br />';
 
 
 // ============================================================
-// ASSOCIATIVIDADE
+// ASSOCIATIVITY
 // ============================================================
-// Quando dois operadores têm a MESMA precedência, a associatividade
-// define se avalia da esquerda para a direita ou da direita para a esquerda
+// When two operators have the SAME precedence, associativity
+// defines whether evaluation goes left to right or right to left
 //
-// Left  (esquerda) — avalia da esquerda para a direita
-// Right (direita)  — avalia da direita para a esquerda
-// None             — não pode ser encadeado
+// Left  — evaluates from left to right
+// Right — evaluates from right to left
+// None  — cannot be chained
 
 
-// LEFT ASSOCIATIVITY — esquerda para a direita
-$result = 10 - 3 - 2;   // (10 - 3) - 2 = 5  (não 10 - (3 - 2) = 9)
+// LEFT ASSOCIATIVITY — left to right
+$result = 10 - 3 - 2;   // (10 - 3) - 2 = 5  (not 10 - (3 - 2) = 9)
 $result = 20 / 4 / 2;   // (20 / 4) / 2 = 2.5
 
 var_dump($result);
 echo '<br />';
 
 
-// RIGHT ASSOCIATIVITY — direita para a esquerda
-$result = 2 ** 3 ** 2;  // 2 ** (3 ** 2) = 2 ** 9 = 512  (não (2**3)**2 = 64)
+// RIGHT ASSOCIATIVITY — right to left
+$result = 2 ** 3 ** 2;  // 2 ** (3 ** 2) = 2 ** 9 = 512  (not (2**3)**2 = 64)
 
 var_dump($result); // int(512)
 echo '<br />';
 
-// Atribuição também é right associative
-$a = $b = $c = 5;       // $c = 5, depois $b = $c, depois $a = $b
+// Assignment is also right associative
+$a = $b = $c = 5;       // $c = 5, then $b = $c, then $a = $b
 var_dump($a, $b, $c);   // int(5), int(5), int(5)
 echo '<br />';
 
 
-// NON-ASSOCIATIVE — não pode ser encadeado
-// $result = 1 < 2 < 3; // erro — < não é encadeável
-// $result = 1 == 1 == 1; // erro — == não é encadeável
+// NON-ASSOCIATIVE — cannot be chained
+// $result = 1 < 2 < 3; // error — < is not chainable
+// $result = 1 == 1 == 1; // error — == is not chainable
 
 
 // ============================================================
-// ARMADILHAS COMUNS
+// COMMON PITFALLS
 // ============================================================
 
-// && vs and — mesma lógica mas precedência DIFERENTE
+// && vs and — same logic but DIFFERENT precedence
 $x = true;
 $y = false;
 
-$result = $x && $y;     // false — && avalia antes de =
+$result = $x && $y;     // false — && evaluates before =
 var_dump($result);      // bool(false) ✔
 
-$result = $x and $y;    // 'and' tem menor precedência que =
-// equivale a: ($result = $x) and $y
-// $result fica true (valor de $x), o 'and' é ignorado para a atribuição
-var_dump($result);      // bool(true) ← comportamento inesperado!
+$result = $x and $y;    // 'and' has lower precedence than =
+// equivalent to: ($result = $x) and $y
+// $result gets true (value of $x), the 'and' is ignored for the assignment
+var_dump($result);      // bool(true) ← unexpected behaviour!
 echo '<br />';
 
-// || vs or — mesmo problema
+// || vs or — same issue
 $result = false || true;    // bool(true)  ✔
-$result = false or true;    // bool(false) ← $result recebe false primeiro
+$result = false or true;    // bool(false) ← $result receives false first
 var_dump($result);
 echo '<br />';
 
 
 // ============================================================
-// BOA PRÁTICA — usa parênteses para deixar a intenção clara
+// BEST PRACTICE — use parentheses to make the intent clear
 // ============================================================
 
-// Difícil de ler — depende de memorizar a tabela de precedência
+// Hard to read — relies on memorising the precedence table
 $result = $a + $b * $c ** 2 > 10 && !$x || $y;
 
-// Fácil de ler — intenção explícita
+// Easy to read — explicit intent
 $result = (($a + ($b * ($c ** 2))) > 10 && (!$x)) || $y;

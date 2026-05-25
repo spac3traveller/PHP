@@ -4,60 +4,60 @@
 // OUTPUT — echo vs print
 // ============================================================
 
-// echo: aceita múltiplos argumentos separados por vírgula, sem return value
+// echo: accepts multiple arguments separated by commas, with no return value
 echo 'echo simples' . '<br>';
 echo ('echo com parênteses') . '<br>';
 echo 'Hello', ' ', 'World', '!' . '<br>';
 
-// Escapar aspas simples com backslash
+// Escape single quotes with a backslash
 echo 'Joe\'s Invoice' . '<br>';
 
-// Aspas duplas permitem interpolação de variáveis (ver mais abaixo)
+// Double quotes allow variable interpolation (see below)
 echo "echo com aspas duplas" . '<br>';
 
-// print: semelhante ao echo mas retorna sempre 1
-// Isso permite usá-lo em expressões (ex: echo print '...')
+// print: similar to echo but always returns 1
+// This allows it to be used in expressions (e.g.: echo print '...')
 echo print 'print retorna 1️⃣';
 echo '<br>';
 print('print com parênteses') . '<br>';
 
 
 // ============================================================
-// VARIÁVEIS
+// VARIABLES
 // ============================================================
 // - Case sensitive ($name !== $Name)
-// - Começam com $ seguido de letra ou underscore
-// - Sem caracteres especiais
-// - $this é reservado
-// - Por defeito, atribuídas por valor (cópia)
+// - Start with $ followed by a letter or underscore
+// - No special characters
+// - $this is reserved
+// - By default, assigned by value (copy)
 
 $name = 'Joe';
 echo $name . '<br>';
 
-// Atribuição por valor — $y é uma cópia independente de $x
+// Assignment by value — $y is an independent copy of $x
 $x = 1;
 $y = $x;
 $x = 3;
-echo $y . '<br>'; // imprime 1 (não foi afectado pela mudança de $x)
+echo $y . '<br>'; // prints 1 (was not affected by the change to $x)
 
-// Atribuição por referência — $z aponta para o mesmo valor que $i
+// Assignment by reference — $z points to the same value as $i
 $i = 1;
 $z = &$i;
 $i = 3;
-echo $z . '<br>'; // imprime 3 (partilham o mesmo valor)
+echo $z . '<br>'; // prints 3 (they share the same value)
 
 
 // ============================================================
-// INTERPOLAÇÃO E CONCATENAÇÃO
+// INTERPOLATION AND CONCATENATION
 // ============================================================
 
 $firstName = 'Tiago';
 
-// Interpolação simples (dentro de aspas duplas)
+// Simple interpolation (inside double quotes)
 echo "Hello $firstName" . '<br>';
 
-// Interpolação com chavetas — útil quando a variável está junto de texto
+// Interpolation with curly braces — useful when the variable is adjacent to text
 echo "Hello {$firstName}" . '<br>';
 
-// Concatenação com o operador .
+// Concatenation with the . operator
 echo "Hello " . $firstName . '<br>';

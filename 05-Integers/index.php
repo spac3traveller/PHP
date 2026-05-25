@@ -1,23 +1,23 @@
 <?php
 
 // ============================================================
-// INTEIROS (Integers)
+// INTEGERS
 // ============================================================
-// Tamanho depende da plataforma (32 ou 64 bits)
+// Size depends on the platform (32 or 64 bits)
 
-echo PHP_INT_MAX . '<br />'; // valor máximo de um int
-echo PHP_INT_MIN . '<br />'; // valor mínimo de um int
+echo PHP_INT_MAX . '<br />'; // maximum integer value
+echo PHP_INT_MIN . '<br />'; // minimum integer value
 
 
 // ============================================================
-// NOTAÇÕES NUMÉRICAS
+// NUMERIC NOTATIONS
 // ============================================================
-// PHP suporta múltiplas bases para definir inteiros
+// PHP supports multiple bases for defining integers
 
 $base10      = 5;     // decimal     — base 10 (normal)
-$hexadecimal = 0x5;   // hexadecimal — prefixo 0x
-$octal       = 05;    // octal       — prefixo 0
-$binary      = 0b101; // binário     — prefixo 0b
+$hexadecimal = 0x5;   // hexadecimal — prefix 0x
+$octal       = 05;    // octal       — prefix 0
+$binary      = 0b101; // binary      — prefix 0b
 
 echo $base10      . '<br />';
 echo $hexadecimal . '<br />';
@@ -26,9 +26,9 @@ echo $binary      . '<br />';
 
 
 // ============================================================
-// OVERFLOW DE INTEIRO
+// INTEGER OVERFLOW
 // ============================================================
-// Quando um int ultrapassa PHP_INT_MAX, o PHP converte automaticamente para float
+// When an int exceeds PHP_INT_MAX, PHP automatically converts it to float
 
 $intOverflow = PHP_INT_MAX + 1;
 echo $intOverflow . '<br />';
@@ -37,7 +37,7 @@ echo '<br />';
 
 
 // ============================================================
-// TYPE CASTING PARA INT
+// TYPE CASTING TO INT
 // ============================================================
 
 $casting = (int) null; // null → 0
@@ -46,9 +46,9 @@ echo '<br />';
 
 
 // ============================================================
-// SEPARADOR NUMÉRICO (PHP 7.4+)
+// NUMERIC SEPARATOR (PHP 7.4+)
 // ============================================================
-// O underscore pode ser usado para melhorar a legibilidade de números grandes
+// The underscore can be used to improve readability of large numbers
 
-$x = 2_000_000_000; // equivale a 2000000000
+$x = 2_000_000_000; // equivalent to 2000000000
 var_dump($x);

@@ -3,8 +3,8 @@
 // ============================================================
 // ARRAYS
 // ============================================================
-// Arrays em PHP são mapas ordenados — podem ter índices numéricos
-// (indexed array) ou chaves string (associative array)
+// Arrays in PHP are ordered maps — they can have numeric indices
+// (indexed array) or string keys (associative array)
 
 
 // ============================================================
@@ -13,24 +13,24 @@
 
 $programmingLanguages = ['PHP', 'JavaScript', 'Python', 'Java', 'C++'];
 
-echo $programmingLanguages[2] . '<br />'; // 'Python' — índice começa em 0
+echo $programmingLanguages[2] . '<br />'; // 'Python' — index starts at 0
 
-// isset() verifica se o índice existe E não é null
+// isset() checks whether the index exists AND is not null
 var_dump(isset($programmingLanguages[5])); // bool(false)
 echo '<br />';
 
-// [] sem índice adiciona ao fim do array (próximo índice disponível)
+// [] without an index appends to the end of the array (next available index)
 $programmingLanguages[] = 'C#';
 echo $programmingLanguages[5] . '<br />'; // 'C#'
 
-// Substituir um valor pelo índice
+// Replace a value by index
 $programmingLanguages[2] = 'Go';
 
 echo '<pre>';
 print_r($programmingLanguages);
 echo '</pre>';
 
-// array_push() adiciona um ou mais elementos ao fim
+// array_push() adds one or more elements to the end
 array_push($programmingLanguages, 'Ruby');
 
 echo '<pre>';
@@ -41,7 +41,7 @@ echo '</pre>';
 // ============================================================
 // ASSOCIATIVE ARRAYS
 // ============================================================
-// Chaves podem ser strings — útil para estruturas com significado semântico
+// Keys can be strings — useful for structures with semantic meaning
 
 $programmingLanguages = [
     'php'    => '8.5',
@@ -61,34 +61,34 @@ $programmingLanguages = [
 // ============================================================
 // array_key_exists() vs isset()
 // ============================================================
-// array_key_exists() — verifica apenas se a chave existe (mesmo que o valor seja null)
-// isset()            — verifica se a chave existe E se o valor não é null
+// array_key_exists() — checks only whether the key exists (even if the value is null)
+// isset()            — checks whether the key exists AND the value is not null
 
 var_dump(array_key_exists('python', $programmingLanguages)); // bool(true)
 echo '<br />';
 var_dump(isset($programmingLanguages['python'])); // bool(true)
 
-// Diferença prática:
+// Practical difference:
 // $arr = ['key' => null];
 // array_key_exists('key', $arr) → true
-// isset($arr['key'])            → false  ← null faz isset() retornar false
+// isset($arr['key'])            → false  ← null makes isset() return false
 
 echo '<pre>';
 print_r($programmingLanguages);
 echo '</pre>';
 
-// Acesso a arrays multidimensionais com encadeamento de chaves
+// Access multidimensional arrays by chaining keys
 print_r($programmingLanguages['python']['versions'][0]['version']); // '3.10'
 
 
 // ============================================================
-// ADICIONAR ELEMENTOS A UM ASSOCIATIVE ARRAY
+// ADDING ELEMENTS TO AN ASSOCIATIVE ARRAY
 // ============================================================
 
-$programmingLanguages['go'] = '1.20'; // chave string literal
+$programmingLanguages['go'] = '1.20'; // literal string key
 
 $newLanguage = 'Rust';
-$programmingLanguages[$newLanguage] = '1.69'; // chave dinâmica via variável
+$programmingLanguages[$newLanguage] = '1.69'; // dynamic key via variable
 
 echo '<pre>';
 print_r($programmingLanguages);
@@ -96,42 +96,42 @@ echo '</pre>';
 
 
 // ============================================================
-// CASTING DE CHAVES
+// KEY CASTING
 // ============================================================
-// PHP converte automaticamente o tipo das chaves:
+// PHP automatically converts key types:
 //   true/false → 1/0
-//   float      → int (parte decimal truncada)
-//   '1'        → 1 (string numérica → int)
-// Chaves duplicadas após conversão: o último valor sobrescreve o anterior
+//   float      → int (decimal part truncated)
+//   '1'        → 1 (numeric string → int)
+// Duplicate keys after conversion: the last value overwrites the previous one
 
 $array = [true => 'a', 1 => 'b', '1' => 'c', 1.8 => 'd'];
-// true → 1, '1' → 1, 1.8 → 1 — todas a mesma chave, fica só 'd'
+// true → 1, '1' → 1, 1.8 → 1 — all the same key, only 'd' remains
 echo '<pre>';
 print_r($array);
 echo '</pre>';
 
 
 // ============================================================
-// ÍNDICES NUMÉRICOS EXPLÍCITOS
+// EXPLICIT NUMERIC INDICES
 // ============================================================
-// Se definires um índice manualmente, o próximo [] continua a partir daí
+// If you define an index manually, the next [] continues from there
 
 $array = ['a', 'b', 50 => 'c', 'd'];
-// índices: 0 => 'a', 1 => 'b', 50 => 'c', 51 => 'd'
+// indices: 0 => 'a', 1 => 'b', 50 => 'c', 51 => 'd'
 echo '<pre>';
 print_r($array);
 echo '</pre>';
 
 
 // ============================================================
-// TYPE CASTING COM ARRAYS
+// TYPE CASTING WITH ARRAYS
 // ============================================================
-// Qualquer valor pode ser convertido para array com (array)
+// Any value can be converted to an array with (array)
 
 $string = (array) 'hello';       // ['hello']
 $int    = (array) 42;            // [42]
 $null   = (array) null;          // []
-$object = (array) new stdClass(); // converte propriedades em chaves
+$object = (array) new stdClass(); // converts properties to keys
 
 echo '<pre>';
 print_r($string);

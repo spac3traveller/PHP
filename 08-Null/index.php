@@ -3,11 +3,11 @@
 // ============================================================
 // NULL
 // ============================================================
-// Representa uma variável sem valor
-// Uma variável é null quando:
-//   - é atribuída com null
-//   - ainda não foi inicializada
-//   - foi destruída com unset()
+// Represents a variable with no value
+// A variable is null when:
+//   - it is assigned null
+//   - it has not been initialised yet
+//   - it was destroyed with unset()
 
 $x = null;
 var_dump(is_null($x)); // bool(true)
@@ -16,18 +16,18 @@ var_dump(is_null($x)); // bool(true)
 // ============================================================
 // unset()
 // ============================================================
-// Destrói a variável — após unset(), a variável passa a ser null
-// e is_null() / isset() reflectem isso
+// Destroys the variable — after unset(), the variable becomes null
+// and is_null() / isset() reflect that
 
 $y = 10;
 echo '<br />';
 var_dump($y);  // int(10)
 unset($y);
-var_dump($y);  // NULL — variável já não existe, PHP emite notice
+var_dump($y);  // NULL — variable no longer exists, PHP emits a notice
 
 
 // ============================================================
-// TYPE CASTING A PARTIR DE NULL
+// TYPE CASTING FROM NULL
 // ============================================================
 // null → int   : 0
 // null → float : 0.0

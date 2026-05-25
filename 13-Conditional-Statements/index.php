@@ -3,14 +3,14 @@
 // ============================================================
 // CONTROL STRUCTURES — if / else / elseif / else if
 // ============================================================
-// Permitem executar blocos de código condicionalmente
-// com base em expressões booleanas
+// Allow executing blocks of code conditionally
+// based on boolean expressions
 
 
 // ============================================================
 // IF
 // ============================================================
-// Executa o bloco apenas se a condição for verdadeira
+// Executes the block only if the condition is true
 
 $age = 20;
 
@@ -22,7 +22,7 @@ if ($age >= 18) {
 // ============================================================
 // IF / ELSE
 // ============================================================
-// else é executado quando a condição do if é falsa
+// else is executed when the if condition is false
 
 $isLoggedIn = false;
 
@@ -36,8 +36,8 @@ if ($isLoggedIn) {
 // ============================================================
 // IF / ELSEIF / ELSE
 // ============================================================
-// elseif permite testar múltiplas condições em sequência
-// Apenas o primeiro bloco verdadeiro é executado
+// elseif allows testing multiple conditions in sequence
+// Only the first true block is executed
 
 $score = 75;
 
@@ -57,13 +57,13 @@ if ($score >= 90) {
 // ============================================================
 // elseif vs else if
 // ============================================================
-// Em PHP são equivalentes com chavetas
-// A diferença aparece na sintaxe alternativa (ver abaixo)
-// Convenção: usar elseif (uma palavra) — mais comum e consistente
+// In PHP they are equivalent when using curly braces
+// The difference appears in the alternative syntax (see below)
+// Convention: use elseif (one word) — more common and consistent
 
 $x = 10;
 
-// elseif — uma palavra
+// elseif — one word
 if ($x > 10) {
     echo 'maior' . '<br />';
 } elseif ($x === 10) {
@@ -72,7 +72,7 @@ if ($x > 10) {
     echo 'menor' . '<br />';
 }
 
-// else if — duas palavras (equivalente com chavetas)
+// else if — two words (equivalent with curly braces)
 if ($x > 10) {
     echo 'maior' . '<br />';
 } else if ($x === 10) {
@@ -83,10 +83,10 @@ if ($x > 10) {
 
 
 // ============================================================
-// SINTAXE ALTERNATIVA (para templates HTML)
+// ALTERNATIVE SYNTAX (for HTML templates)
 // ============================================================
-// Usa : em vez de { e endif em vez de }
-// NOTA: nesta sintaxe apenas elseif é válido — else if causa erro
+// Uses : instead of { and endif instead of }
+// NOTE: in this syntax only elseif is valid — else if causes an error
 
 $isAdmin = true;
 
@@ -101,9 +101,9 @@ if ($isAdmin): ?>
 
 <?php
 // ============================================================
-// IF DE UMA LINHA (sem chavetas)
+// SINGLE-LINE IF (without curly braces)
 // ============================================================
-// Válido mas não recomendado — dificulta a leitura e manutenção
+// Valid but not recommended — makes reading and maintenance harder
 
 $isActive = true;
 
@@ -111,9 +111,9 @@ if ($isActive) echo 'Activo' . '<br />';
 
 
 // ============================================================
-// EXPRESSÕES DENTRO DO IF
+// EXPRESSIONS INSIDE IF
 // ============================================================
-// Qualquer expressão que retorne um valor pode ser usada
+// Any expression that returns a value can be used
 
 $name = '';
 
@@ -124,8 +124,8 @@ if ($name) {
     echo 'Nome não definido' . '<br />';
 }
 
-// Atribuição dentro do if (PHP 8+)
-// Útil para verificar e atribuir ao mesmo tempo
+// Assignment inside if (PHP 8+)
+// Useful for checking and assigning at the same time
 function getUserFromDb(): ?string
 {
     return 'Atribuition inside if';
@@ -136,63 +136,63 @@ if ($user = getUserFromDb()) {
 
 
 // ============================================================
-// TERNÁRIO — forma compacta do if/else
+// TERNARY — compact form of if/else
 // ============================================================
 
 $isOnline = true;
 
-// forma completa
+// full form
 $status = $isOnline ? 'online' : 'offline';
 echo $status . '<br />';
 
-// forma encadeada (evitar — dificulta leitura)
+// chained form (avoid — makes reading harder)
 $score = 85;
 $grade = $score >= 90 ? 'A' : ($score >= 80 ? 'B' : ($score >= 70 ? 'C' : 'F'));
 echo $grade . '<br />';
 
 
 // ============================================================
-// NULL COALESCING — alternativa ao if para verificar null
+// NULL COALESCING — alternative to if for checking null
 // ============================================================
 
 $username = null;
 
-// sem ??
+// without ??
 if ($username !== null) {
     echo $username . '<br />';
 } else {
     echo 'Anónimo' . '<br />';
 }
 
-// com ?? — mais conciso
+// with ?? — more concise
 echo ($username ?? 'Anónimo') . '<br />';
 
 
 // ============================================================
-// BOAS PRÁTICAS
+// BEST PRACTICES
 // ============================================================
 
-// 1. Usa sempre chavetas — mesmo para blocos de uma linha
+// 1. Always use curly braces — even for single-line blocks
 if ($isActive) {
     echo 'Activo' . '<br />';
 }
 
-// 2. Evita negações desnecessárias — prefere a condição positiva
-// Mau
+// 2. Avoid unnecessary negations — prefer the positive condition
+// Bad
 if (!$isLoggedIn) {
-    // redireciona
+    // redirect
 } else {
-    // mostra conteúdo
+    // show content
 }
 
-// Bom
+// Good
 if ($isLoggedIn) {
-    // mostra conteúdo
+    // show content
 } else {
-    // redireciona
+    // redirect
 }
 
-// 3. Early return — evita níveis excessivos de indentação
+// 3. Early return — avoids excessive levels of indentation
 function getDiscount(bool $isMember, int $age): int
 {
     if (!$isMember) {

@@ -3,28 +3,28 @@
 // ============================================================
 // STRINGS
 // ============================================================
-// Aspas simples — sem interpolação, mais performante
-// Aspas duplas  — permite interpolação de variáveis e caracteres especiais (\n, \t, etc.)
+// Single quotes — no interpolation, more performant
+// Double quotes — allows variable interpolation and special characters (\n, \t, etc.)
 
 $firstName = 'John';
-$lastName  = "{$firstName} Doe"; // interpolação com chavetas
+$lastName  = "{$firstName} Doe"; // interpolation with curly braces
 echo $lastName . '<br />';
 
 
 // ============================================================
-// ACESSO A CARACTERES (índice como array)
+// CHARACTER ACCESS (index like array)
 // ============================================================
-// Índices positivos começam em 0 (da esquerda)
-// Índices negativos começam em -1 (da direita)
+// Positive indices start at 0 (from the left)
+// Negative indices start at -1 (from the right)
 
-echo $firstName[1]  . '<br />'; // 'o' — segundo caracter
-echo $firstName[-2] . '<br />'; // 'h' — segundo a contar do fim
+echo $firstName[1]  . '<br />'; // 'o' — second character
+echo $firstName[-2] . '<br />'; // 'h' — second from the end
 
 
 // ============================================================
-// MUTAÇÃO DE CARACTERES
+// CHARACTER MUTATION
 // ============================================================
-// É possível alterar um caracter individual pelo seu índice
+// It is possible to change an individual character by its index
 
 $firstName[1] = 'O'; // 'John' → 'JOhn'
 echo $firstName . '<br />';
@@ -33,8 +33,8 @@ echo $firstName . '<br />';
 // ============================================================
 // HEREDOC
 // ============================================================
-// Sintaxe para strings multilinha com interpolação de variáveis
-// O identificador de fecho deve estar no início da linha, sem espaços
+// Syntax for multiline strings with variable interpolation
+// The closing identifier must be at the start of the line, with no spaces
 
 $x = 1;
 $y = 2;
@@ -45,14 +45,14 @@ line2 $y
 line3
 TEXT;
 
-echo nl2br($text); // nl2br() converte \n em <br /> para exibição no browser
+echo nl2br($text); // nl2br() converts \n to <br /> for display in the browser
 
 
 // ============================================================
 // NOWDOC
 // ============================================================
-// Idêntico ao Heredoc mas SEM interpolação — equivale a aspas simples
-// O identificador de abertura é envolvido em aspas simples: <<<'TEXT'
+// Identical to Heredoc but WITHOUT interpolation — equivalent to single quotes
+// The opening identifier is wrapped in single quotes: <<<'TEXT'
 
 $text = <<<'TEXT'
 line1 $x
@@ -61,4 +61,4 @@ line3
 TEXT;
 
 echo '<br />';
-echo nl2br($text); // $x e $y são impressos literalmente, sem substituição
+echo nl2br($text); // $x and $y are printed literally, without substitution

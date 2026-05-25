@@ -3,28 +3,28 @@
 // ============================================================
 // BOOLEANS
 // ============================================================
-// Apenas dois valores possíveis: true ou false (case insensitive)
+// Only two possible values: true or false (case insensitive)
 
 $isComplete = TRUE;
 
-// is_bool() verifica se uma variável é do tipo bool
+// is_bool() checks whether a variable is of type bool
 var_dump(is_bool($isComplete));
 
 
 // ============================================================
-// VALORES FALSY
+// FALSY VALUES
 // ============================================================
-// Os seguintes valores são avaliados como false em contexto booleano:
+// The following values evaluate to false in a boolean context:
 //
-//   Inteiros  → 0, -0
+//   Integers  → 0, -0
 //   Floats    → 0.0, -0.0
 //   Strings   → '', '0'
 //   Array     → []
-//   Especial  → null
+//   Special   → null
 
 
 // ============================================================
-// USO PRÁTICO
+// PRACTICAL USE
 // ============================================================
 
 if ($isComplete) {

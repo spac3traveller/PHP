@@ -1,37 +1,37 @@
 <?php
 
 // ============================================================
-// OPERADORES EM PHP
+// OPERATORS IN PHP
 // ============================================================
 
 
 // ============================================================
-// ARITMÉTICOS (+ - * / % **)
+// ARITHMETIC (+ - * / % **)
 // ============================================================
 
 $x = -10;
 $y = 2;
 
-var_dump($x + $y);  // int(-8)  — adição
-var_dump($x - $y);  // int(-12) — subtração
-var_dump($x * $y);  // int(-20) — multiplicação
-var_dump($x / $y);  // int(-5)  — divisão
-var_dump($x % $y);  // int(0)   — módulo (resto da divisão)
-var_dump($x ** $y); // int(100) — exponenciação
+var_dump($x + $y);  // int(-8)  — addition
+var_dump($x - $y);  // int(-12) — subtraction
+var_dump($x * $y);  // int(-20) — multiplication
+var_dump($x / $y);  // int(-5)  — division
+var_dump($x % $y);  // int(0)   — modulo (remainder of division)
+var_dump($x ** $y); // int(100) — exponentiation
 echo '<br />';
 
-// Negação unária — converte string numérica para int/float negativo
+// Unary negation — converts a numeric string to a negative int/float
 $x = '15';
 var_dump(-$x); // int(-15)
 echo '<br />';
 
-// fdiv() — divisão por zero retorna INF, -INF ou NAN em vez de erro
+// fdiv() — division by zero returns INF, -INF or NAN instead of an error
 $x = 10;
 $y = 0;
 var_dump(fdiv($x, $y)); // float(INF)
 echo '<br />';
 
-// fmod() — módulo para floats (% trunca para int)
+// fmod() — modulo for floats (% truncates to int)
 $x = 10.5;
 $y = 2.9;
 var_dump(fmod($x, $y)); // float(1.8)
@@ -39,21 +39,21 @@ echo '<br />';
 
 
 // ============================================================
-// ATRIBUIÇÃO (= += -= *= /= %= **=)
+// ASSIGNMENT (= += -= *= /= %= **=)
 // ============================================================
 
-// Atribuição encadeada — $x e $y ficam ambos com 10
+// Chained assignment — $x and $y both get 10
 $x = $y = 10;
 var_dump($x); // int(10)
 echo '<br />';
 
-// Atribuição dentro de expressão
-// $y recebe 10, depois $x recebe ($y + 5) = 15
+// Assignment inside an expression
+// $y receives 10, then $x receives ($y + 5) = 15
 $x = (($y = 10) + 5);
 var_dump($x, $y); // int(15), int(10)
 echo '<br />';
 
-// Operadores de atribuição composta
+// Compound assignment operators
 $x += $x; // $x = $x + $x → 30
 var_dump($x);
 echo '<br />';
@@ -64,83 +64,83 @@ echo '<br />';
 // ============================================================
 
 $x = 'Hello';
-echo $x . ' World' . '<br />';  // concatenação simples — $x não é alterado
-echo $x .= ' World' . '<br />'; // .= concatena e reatribui — $x passa a 'Hello World'
+echo $x . ' World' . '<br />';  // simple concatenation — $x is not changed
+echo $x .= ' World' . '<br />'; // .= concatenates and reassigns — $x becomes 'Hello World'
 
 
 // ============================================================
-// COMPARAÇÃO (== === != <> !== < > <= >= <=> ?? ?:)
+// COMPARISON (== === != <> !== < > <= >= <=> ?? ?:)
 // ============================================================
 
 $x = 5;
 $y = '5';
 
-var_dump($x == $y);   // true  — igual em valor (coerção de tipo)
-var_dump($x === $y);  // false — igual em valor E tipo
-var_dump($x != $y);   // false — diferente em valor
-var_dump($x <> $y);   // false — alias de !=
-var_dump($x !== $y);  // true  — diferente em valor OU tipo
+var_dump($x == $y);   // true  — equal in value (type coercion)
+var_dump($x === $y);  // false — equal in value AND type
+var_dump($x != $y);   // false — not equal in value
+var_dump($x <> $y);   // false — alias for !=
+var_dump($x !== $y);  // true  — not equal in value OR type
 var_dump($x < $y);    // false
 var_dump($x > $y);    // false
 var_dump($x <= $y);   // true
 var_dump($x >= $y);   // true
-var_dump($x <=> $y);  // int(0) — spaceship: -1 menor, 0 igual, 1 maior
+var_dump($x <=> $y);  // int(0) — spaceship: -1 smaller, 0 equal, 1 greater
 
-// ?? — null coalescing: retorna o lado esquerdo se não for null
-var_dump($x ?? $y);   // int(5) — $x não é null, retorna $x
+// ?? — null coalescing: returns the left side if not null
+var_dump($x ?? $y);   // int(5) — $x is not null, returns $x
 
-// ?: — elvis: retorna o lado esquerdo se truthy, senão o direito
-var_dump($x ?: $y);   // int(5) — $x é truthy, retorna $x
+// ?: — elvis: returns the left side if truthy, otherwise the right
+var_dump($x ?: $y);   // int(5) — $x is truthy, returns $x
 echo '<br />';
 
 
 // ============================================================
-// CONTROLO DE ERROS (@)
+// ERROR CONTROL (@)
 // ============================================================
-// @ suprime erros/warnings — usar com moderação, dificulta debugging
+// @ suppresses errors/warnings — use sparingly, it makes debugging harder
 
-$x = @file('file.txt'); // sem @ emitiria warning se o ficheiro não existir
+$x = @file('file.txt'); // without @ it would emit a warning if the file does not exist
 
 
 // ============================================================
-// INCREMENTO / DECREMENTO (++ --)
+// INCREMENT / DECREMENT (++ --)
 // ============================================================
 
 $x = 5; $y = 5; $z = 5; $w = 5;
 
-echo ++$x . '<br />'; // 6 — pre-increment:  incrementa ANTES de retornar
-echo $y++ . '<br />'; // 5 — post-increment: retorna ANTES de incrementar
-echo --$z . '<br />'; // 4 — pre-decrement:  decrementa ANTES de retornar
-echo $w-- . '<br />'; // 5 — post-decrement: retorna ANTES de decrementar
+echo ++$x . '<br />'; // 6 — pre-increment:  increments BEFORE returning
+echo $y++ . '<br />'; // 5 — post-increment: returns BEFORE incrementing
+echo --$z . '<br />'; // 4 — pre-decrement:  decrements BEFORE returning
+echo $w-- . '<br />'; // 5 — post-decrement: returns BEFORE decrementing
 
 
 // ============================================================
-// LÓGICOS (&& || ! and or xor)
+// LOGICAL (&& || ! and or xor)
 // ============================================================
-// && e || têm maior precedência que 'and' e 'or'
-// Usar sempre && e || para evitar comportamentos inesperados
+// && and || have higher precedence than 'and' and 'or'
+// Always use && and || to avoid unexpected behaviour
 
 $a = true;
 $b = false;
 
-var_dump($a && $b);  // false — ambos verdadeiros
-var_dump($a || $b);  // true  — pelo menos um verdadeiro
-var_dump(!$a);       // false — negação
-var_dump($a xor $b); // true  — um verdadeiro mas não ambos
+var_dump($a && $b);  // false — both must be true
+var_dump($a || $b);  // true  — at least one is true
+var_dump(!$a);       // false — negation
+var_dump($a xor $b); // true  — one is true but not both
 echo '<br />';
 
 
 // ============================================================
 // BITWISE (& | ^ ~ << >>)
 // ============================================================
-// Operam bit a bit — usados em flags, permissões, criptografia
+// Operate bit by bit — used in flags, permissions, cryptography
 
 var_dump(6 & 3);  // int(2) — AND:         110 & 011 = 010
 var_dump(6 | 3);  // int(7) — OR:          110 | 011 = 111
 var_dump(6 ^ 3);  // int(5) — XOR:         110 ^ 011 = 101
-var_dump(~6);     // int(-7)— NOT:         inverte todos os bits
-var_dump(6 << 1); // int(12)— shift left:  multiplica por 2
-var_dump(6 >> 1); // int(3) — shift right: divide por 2
+var_dump(~6);     // int(-7)— NOT:         inverts all bits
+var_dump(6 << 1); // int(12)— shift left:  multiplies by 2
+var_dump(6 >> 1); // int(3) — shift right: divides by 2
 echo '<br />';
 
 
@@ -151,18 +151,18 @@ echo '<br />';
 $a = ['x' => 1, 'y' => 2];
 $b = ['x' => 1, 'y' => 2, 'z' => 3];
 
-var_dump($a + $b);    // união — mantém chaves do lado esquerdo em caso de conflito
-var_dump($a == $b);   // false — mesmos pares chave/valor (independente da ordem)
-var_dump($a === $b);  // false — mesmos pares, mesmos tipos E mesma ordem
+var_dump($a + $b);    // union — keeps left-side keys in case of conflict
+var_dump($a == $b);   // false — same key/value pairs (regardless of order)
+var_dump($a === $b);  // false — same pairs, same types AND same order
 var_dump($a != $b);   // true
 var_dump($a !== $b);  // true
 echo '<br />';
 
 
 // ============================================================
-// EXECUÇÃO (``)
+// EXECUTION (``)
 // ============================================================
-// Executa comandos do sistema operativo — equivale a shell_exec()
+// Executes operating system commands — equivalent to shell_exec()
 
 $output = `ls -la`;
 echo nl2br($output);
@@ -170,9 +170,9 @@ echo '<br />';
 
 
 // ============================================================
-// TIPO (instanceof)
+// TYPE (instanceof)
 // ============================================================
-// Verifica se um objecto é instância de uma classe
+// Checks whether an object is an instance of a class
 
 class User {}
 $user = new User();
@@ -184,12 +184,12 @@ echo '<br />';
 // ============================================================
 // NULLSAFE — PHP 8 (?->)
 // ============================================================
-// Evita erros ao encadear métodos/propriedades que podem ser null
-// Se qualquer parte da cadeia for null, retorna null em vez de erro
+// Avoids errors when chaining methods/properties that may be null
+// If any part of the chain is null, returns null instead of an error
 
 class Order {
     public ?User $user = null;
 }
 
 $order = new Order();
-var_dump($order->user?->getName()); // NULL — sem erro, mesmo que $user seja null
+var_dump($order->user?->getName()); // NULL — no error, even if $user is null

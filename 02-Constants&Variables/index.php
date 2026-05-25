@@ -1,24 +1,24 @@
 <?php
 
 // ============================================================
-// CONSTANTES
+// CONSTANTS
 // ============================================================
 // - Case sensitive
-// - Imutáveis (não podem ser alteradas após definição)
-// - Convenção: nomes em CAPS_SNAKE_CASE
-// - Acessíveis globalmente sem o símbolo $
+// - Immutable (cannot be changed after definition)
+// - Convention: names in CAPS_SNAKE_CASE
+// - Globally accessible without the $ symbol
 
 
 // ============================================================
 // define() vs const
 // ============================================================
-// define() — avaliado em runtime, pode ser usado em qualquer contexto
-// const    — avaliado em compile time, não pode ser usado dentro de estruturas de controlo
+// define() — evaluated at runtime, can be used in any context
+// const    — evaluated at compile time, cannot be used inside control structures
 
 define('PI', 3.14159);
 echo PI . '<br>';
 
-// defined() verifica se uma constante existe — retorna 1 (true) ou '' (false)
+// defined() checks whether a constant exists — returns 1 (true) or '' (false)
 echo defined('PI') . '<br>';
 
 const E = 2.71828;
@@ -26,9 +26,9 @@ echo E . '<br>';
 
 
 // ============================================================
-// define() DENTRO DE ESTRUTURAS DE CONTROLO
+// define() INSIDE CONTROL STRUCTURES
 // ============================================================
-// const não funciona aqui — apenas define() é permitido
+// const does not work here — only define() is allowed
 
 if (true) {
     define('STATUS_UNPAID', 'unpaid');
@@ -36,41 +36,41 @@ if (true) {
 
 
 // ============================================================
-// CONSTANTES DINÂMICAS
+// DYNAMIC CONSTANTS
 // ============================================================
-// define() aceita expressões no nome da constante
+// define() accepts expressions in the constant name
 
 $paid = 'PAID';
-define('STATUS_' . $paid, 4); // cria STATUS_PAID com valor 4
+define('STATUS_' . $paid, 4); // creates STATUS_PAID with value 4
 echo STATUS_PAID . '<br>';
 
 
 // ============================================================
-// CONSTANTES MÁGICAS
+// MAGIC CONSTANTS
 // ============================================================
-// Mudam consoante o contexto onde são usadas
+// Change depending on the context where they are used
 
-echo __FILE__ . '<br>'; // caminho absoluto do ficheiro actual
-echo __LINE__ . '<br>'; // número da linha actual
-echo __DIR__  . '<br>'; // directório do ficheiro actual
-
-
-// ============================================================
-// CONSTANTES PREDEFINIDAS DO PHP
-// ============================================================
-
-echo PHP_VERSION . '<br>'; // versão do PHP instalada
-echo PHP_OS      . '<br>'; // sistema operativo onde o PHP corre
+echo __FILE__ . '<br>'; // absolute path of the current file
+echo __LINE__ . '<br>'; // current line number
+echo __DIR__  . '<br>'; // directory of the current file
 
 
 // ============================================================
-// VARIÁVEIS VARIÁVEIS (Variable Variables)
+// PHP PREDEFINED CONSTANTS
 // ============================================================
-// $var contém o nome de outra variável
-// $$var acede à variável cujo nome está em $var
+
+echo PHP_VERSION . '<br>'; // installed PHP version
+echo PHP_OS      . '<br>'; // operating system where PHP runs
+
+
+// ============================================================
+// VARIABLE VARIABLES
+// ============================================================
+// $var contains the name of another variable
+// $$var accesses the variable whose name is stored in $var
 
 $var  = 'name';
-$$var = 'John'; // equivale a $name = 'John'
+$$var = 'John'; // equivalent to $name = 'John'
 
-echo $var, $name . '<br>';       // imprime: name, John
-echo "$var, {$$var}" . '<br>';   // imprime: name, John
+echo $var, $name . '<br>';       // prints: name, John
+echo "$var, {$$var}" . '<br>';   // prints: name, John

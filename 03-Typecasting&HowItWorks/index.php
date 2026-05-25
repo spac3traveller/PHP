@@ -1,67 +1,67 @@
 <?php
 
 // ============================================================
-// TIPAGEM EM PHP
+// TYPING IN PHP
 // ============================================================
-// PHP é dinamicamente tipado (weakly typed):
-//   - o tipo de uma variável é determinado em runtime
-//   - o tipo pode mudar ao longo da execução
+// PHP is dynamically typed (weakly typed):
+//   - a variable's type is determined at runtime
+//   - the type can change during execution
 //
-// Linguagens fortemente tipadas (strongly typed):
-//   - o tipo é determinado em compile time e não pode mudar
+// Strongly typed languages:
+//   - the type is determined at compile time and cannot change
 
 
 // ============================================================
-// TIPOS ESCALARES (Scalar Types)
+// SCALAR TYPES
 // ============================================================
-// Guardam um único valor
+// Store a single value
 
-$completed = true;       // bool  — true ou false
-$score     = 10;         // int   — inteiro, sem decimal
-$price     = 9.99;       // float — número com decimal
-$greeting  = 'Hello World'; // string — texto
+$completed = true;       // bool  — true or false
+$score     = 10;         // int   — integer, no decimal
+$price     = 9.99;       // float — number with decimal
+$greeting  = 'Hello World'; // string — text
 
 echo $completed . '<br />';
 echo $score     . '<br />';
 echo $price     . '<br />';
 echo $greeting  . '<br />';
 
-// gettype() retorna o tipo como string
+// gettype() returns the type as a string
 echo gettype($score) . '<br />';
 
-// var_dump() mostra o tipo e o valor
+// var_dump() shows the type and value
 var_dump($completed);
 
 
 // ============================================================
-// TIPOS COMPOSTOS (Compound Types)
+// COMPOUND TYPES
 // ============================================================
 
-// array — colecção de valores de qualquer tipo
+// array — collection of values of any type
 $companies = [1, 2, 3, 0, 5, -9.2, 'A', 'b', true];
 print_r($companies);
 
-// object   — instância de uma classe
-// callable — função ou método que pode ser invocado
-// iterable — array ou objecto que implementa Traversable
+// object   — instance of a class
+// callable — function or method that can be invoked
+// iterable — array or object that implements Traversable
 
 
 // ============================================================
-// TIPOS ESPECIAIS (Special Types)
+// SPECIAL TYPES
 // ============================================================
 
-// resource — referência a um recurso externo (ex: ficheiro, ligação BD)
-// null     — variável sem valor atribuído
+// resource — reference to an external resource (e.g.: file, DB connection)
+// null     — variable with no assigned value
 
 
 // ============================================================
-// TYPE COERCION (Tipagem Fraca)
+// TYPE COERCION (Weak Typing)
 // ============================================================
-// Sem strict_types, o PHP converte automaticamente os tipos dos argumentos
+// Without strict_types, PHP automatically converts argument types
 
 function sum(int $x, int $y): int
 {
-    var_dump($x, $y); // mostra os tipos após coerção
+    var_dump($x, $y); // shows types after coercion
     echo '<br />';
     return $x + $y;
 }
@@ -75,25 +75,25 @@ echo '<br />';
 // ============================================================
 // STRICT TYPES
 // ============================================================
-// Com declare(strict_types=1) no topo do ficheiro, o PHP deixa
-// de fazer coerção automática e lança um TypeError se os tipos
-// não corresponderem exactamente
+// With declare(strict_types=1) at the top of the file, PHP stops
+// doing automatic coercion and throws a TypeError if the types
+// do not match exactly
 
-// declare(strict_types=1); // deve ser a primeira linha do ficheiro
+// declare(strict_types=1); // must be the first line of the file
 //
 // function sumStrict(float $x, float $y): float {
 //     return $x + $y;
 // }
 //
-// $sum = sumStrict(3, 2); // int é aceite para float mesmo com strict_types
+// $sum = sumStrict(3, 2); // int is accepted for float even with strict_types
 // echo $sum . '<br />';
 // var_dump($sum);
 
 
 // ============================================================
-// TYPE CASTING (Conversão Explícita)
+// TYPE CASTING (Explicit Conversion)
 // ============================================================
-// Força a conversão de um valor para um tipo específico
+// Forces the conversion of a value to a specific type
 
-$x = (int) '2.5'; // '2.5' (string) → 2 (int), a parte decimal é truncada
+$x = (int) '2.5'; // '2.5' (string) → 2 (int), the decimal part is truncated
 var_dump($x);
