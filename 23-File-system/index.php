@@ -211,3 +211,4 @@ echo __FILE__      . '<br />'; // absolute path of the current file
 echo __DIR__       . '<br />'; // directory of the current file
 echo PHP_EOL       . '<br />'; // OS-appropriate line ending (\n or \r\n)
 echo DIRECTORY_SEPARATOR . '<br />'; // / on Unix, \ on Windows
+
